@@ -1,0 +1,113 @@
+body{
+    background-color:#CCFFFF;
+    color: black;
+}
+
+/*Navigation Bar*/
+
+#navigation_bar{
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 36px;
+    position: sticky;
+    top: 10px;
+}
+
+#navigation_list{
+    display: flex;
+    justify-items: auto auto;
+}
+
+.navigation_list_item{
+    list-style: none;
+}
+
+.navigation_element{
+    text-decoration: none;
+    color: white;
+    padding: 18px;
+    font-size: 22px;
+    font-family: 'Bree Serif', serif;
+}
+
+.navigation_element:hover{
+    color: yellow;
+    text-decoration: underline;
+}
+
+#Portal{
+    color: yellow;
+    text-decoration: underline;
+}
+
+#suggestions_title{
+    margin: 10px;
+    margin-top: 20px;
+    font-size: 65px;
+    font-family: 'Playfair Display', serif;
+    padding: 20px;
+    font-weight:bolder;
+    text-align: center;
+}
+
+.form_section{
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 250px 400px;
+    border: none;
+    justify-content: justify;
+    width: 720px;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: #ace5ee;
+    margin-top: 20px;
+}
+
+.form_element{
+    padding: 5px;
+    font-size: 25px;    
+    margin: 10px;
+    font-family: 'Teko', sans-serif;
+}
+
+.input_element{
+    width: 400px;
+    height: 25px;
+    margin-top: 15px;
+}
+
+.label_element{
+    padding-left: 30px;
+}
+
+.next_button{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-family: 'Teko', sans-serif;
+    font-size: 25px;
+    width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    width: 100px;
+}
+
+.full_label{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.full{
+    margin-left: 36px;
+    width: 600px;
+}
+
+.temporaryly_disabled{
+    display: none;
+}
