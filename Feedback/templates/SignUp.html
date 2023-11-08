@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp | .com</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Playfair+Display&family=Oswald&family=Teko&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/SignUp.css">
+</head>
+
+<body>
+    <nav id="navigation_bar">
+        <ul id="navigation_list">
+            <li class="navigation_list_item"><a class="navigation_element" href="{% url 'home' %}" id="Home">Home</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="About Us">About Us</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="{% url 'portal' %}" id="Portal">Portal</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="Contact Us">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div id="signup_title">Sign Up</div>
+
+    <section id="key_section" class="signup_section">
+        <label for="key" class="form_element label_element">Key:</label>
+        <input type="password" id="key" class="form_element input_element">
+
+        <input type="button" value="Proceed" id="proceed_button" onclick="proceed()" class="next_button">
+    </section>
+
+    
+
+    <form action="{% url 'signup' %}" method="post" id="signup_form">
+        {% csrf_token %}
+        <section class="signup_section temporaryly_disabled" id="information_section">
+            <label for="email_address" class="form_element label_element">Email Address:</label>
+            <input type="email" class="form_element input_element" id="email_address" name="email">
+
+            <label for="phone_number" class="form_element label_element">Phone Number</label>
+            <input type="number" class="form_element input_element" id="phone_number" name="phone_number">
+
+            <input type="button" value="Next" id="jump_button" onclick="jump()" class="next_button">
+        </section>
+
+        <section class="signup_section temporaryly_disabled" id="detail_section">
+            <label for="district" class="form_element label_element">District:</label>
+            <select name="district" id="district" class="form_element select_element" required onchange="_selected_c()">
+                <option value="Select_Your_District" selected disabled>Select Your District</option>
+                <option value="ahmedabad">Ahmedabad</option>
+                <option value="amreli">Amreli</option>
+                <option value="anand">Anand</option>
+                <option value="bharuch">Bharuch</option>
+                <option value="bhavnagar">Bhavnagar</option>
+                <option value="bhuj">Bhuj</option>
+                <option value="botad">Botad</option>
+                <option value="dahod">Dahod</option>
+                <option value="deesa">Deesa</option>
+                <option value="gandhidham">Gandhidham</option>
+                <option value="gandhinagar">Gandhinagar</option>
+                <option value="godhra">Godhra</option>
+                <option value="gondal">Gondal</option>
+                <option value="jamnagar">Jamnagar</option>
+                <option value="jetpur">Jetpur</option>
+                <option value="junagadh">Junagadh</option>
+                <option value="kalol">Kalol</option>
+                <option value="mehsana">Mehsana</option>
+                <option value="morbi">Morbi</option>
+                <option value="nadiad">Nadiad</option>
+                <option value="navsari">Navsari</option>
+                <option value="palanpur">Palanpur</option>
+                <option value="patan">Patan</option>
+                <option value="porbandar">Porbandar</option>
+                <option value="rajkot">Rajkot</option>
+                <option value="surat">Surat</option>
+                <option value="surendranagar">Surendranagar</option>
+                <option value="vadodara">Vadodara</option>
+                <option value="valsad">Valsad</option>
+                <option value="vapi">Vapi</option>
+                <option value="veraval">Veraval</option>
+            </select>
+
+            <input type="text" class="temporaryly_disabled" id="selected_city" name="selected_city">
+
+            <label for="police_station_name" class="form_element label_element">Police Station Name:</label>
+            <input type="text" id="police_station_name" class="form_element input_element" name="police_station_name">
+
+            <input type="button" value="Next" id="next_button" onclick="next()" class="next_button">
+        </section>
+
+        <section class="signup_section temporaryly_disabled" id="signup_section">
+            <label for="username" class="form_element label_element">Username:</label>
+            <input type="text" class="form_element input_element" id="username" name="username">
+
+            <label for="password" class="form_element label_element">Password:</label>
+            <input type="password" class="form_element input_element" id="password" name="password">
+
+            <input type="button" value="SignUp" id="signup_button" onclick="signup()" class="next_button">
+        </section>
+    </form>
+</body>
+
+<script src="../static/js/SignUp.js"></script>
+
+</html>

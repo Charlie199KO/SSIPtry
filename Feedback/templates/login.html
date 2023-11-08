@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Playfair+Display&family=Oswald&family=Teko&display=swap" rel="stylesheet">
+    <title>Login | .com</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+</head>
+<body>
+    <nav id="navigation_bar">
+        <ul id="navigation_list">
+            <li class="navigation_list_item"><a class="navigation_element" href="{% url 'home' %}" id="Home">Home</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="About Us">About Us</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="{% url 'portal' %}" id="Portal">Portal</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="Contact Us">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div id="login_title">Login</div>
+    
+    <form action="{% url 'login' %}" method="post" id="login_form">
+        {% csrf_token %}
+
+        <section id="login_section">
+            <label for="username" class="form_element label_element">Username:</label>
+            <input type="text" class="form_element input_element" id="username" name="username">
+            
+            <label for="password" class="form_element label_element">Password:</label>       
+            <input type="password" class="form_element input_element" id="password" name="password">
+            
+            <input type="button" value="Login" id="login_button" onclick="check()" class="login_button">
+        </section>
+    
+    </form>
+    
+    <section class="signup_section">
+        <div class="form_element">Haven't Signed Up Yet?</div>
+        <a href="{% url 'signup' %}" class="form_element">SignUp</a>
+    </section>
+</body>
+
+<script src="../static/js/login.js"></script>
+
+</html>

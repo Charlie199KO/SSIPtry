@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/portal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Josefin+Sans&family=Edu+TAS+Beginner:wght@500&family=Oswald&family=Teko&family=Playfair+Display&display=swap" rel="stylesheet">
+    <title>Portal | .com</title>
+</head>
+<body>
+    <nav id="navigation_bar">
+        <ul id="navigation_list">
+            <li class="navigation_list_item"><a class="navigation_element" href="{% url 'home' %}" id="Home">Home</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="About Us">About Us</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="{% url 'portal' %}" id="Portal">Portal</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="{% url 'login' %}" id="Login">Login</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="Contact Us">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section id="portal_header">
+        <div id="portal_header_heading">Gujarat Police Feeback Portal</div>
+        <div id="portal_header_content">We value your feedback and opinions. Help us make Gujarat a safer place for everyone.</div>
+    </section>
+
+    <section id="content_body">
+
+        <section id="incident_section" class="content_section">
+            <div id="incident_header" class="content_header">Report An Incident</div>
+            <div class="content">If you have recently interacted with Gujarat Police, share your experience and help us improve.</div>
+            <a href="{% url 'incident' %}" class="links">Report Incident</a>
+        </section>
+
+        <section id="rate_service" class="content_section">
+            <div id="services_header" class="content_header">Rate Our Services</div>
+            <div class="content">Rate your overall experience with Gujarat Police services and help us identify areas for improvement. Your feedback is valuable and we care for it.</div>
+            <a href="{% url 'feedback' %}" class="links">Feedback Form</a>
+        </section>
+
+        <section id="suggestion" class="content_section">
+            <div id="suggestion_header" class="content_header">Provide Suggestions</div>
+            <div class="content">Have suggestions on how we can enhance our services or improve community safety? We welcome your ideas.</div>
+            <a href="{% url 'suggestion' %}" class="links">Provide Suggestions</a>
+        </section>
+
+        <section id="compliment" class="content_section">
+            <div id="compliment_header" class="content_header">Compliments</div>
+            <div class="content">Had a positive experience? Share your compliments and motivate us to continue our dedication to serving the community.</div>
+            <a href="{% url 'compliment' %}" class="links">Compliments</a>
+        </section>
+
+    </section>
+    
+</body>
+</html>

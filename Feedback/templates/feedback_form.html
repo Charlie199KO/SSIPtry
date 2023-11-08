@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Oswald&family=Playfair+Display&family=Teko&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/feedback_form.css">
+    <title>Form | .com</title>
+</head>
+
+<body>
+
+    <nav id="navigation_bar">
+        <ul id="navigation_list">
+            <li class="navigation_list_item"><a class="navigation_element" href="{% url 'home' %}" id="Home">Home</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="About Us">About Us</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="{% url 'portal' %}" id="Portal">Portal</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="Contact Us">Contact Us</a></li>
+            
+        </ul>
+    </nav>
+
+    <img src="../static/images/logo.jpg" alt="Sorry Image Not Found" id="logo_image">
+
+    <div id="feedback_title">Feedback Form</div>
+
+    <section id="form_section">
+
+        <form action="{% url 'feedback' %}" method="post" id="feedback_form"   >
+            {% csrf_token %}
+
+            <section class="form_section">
+
+                <label for="name" class="form_element label_element">Name*:</label>
+                <input type="text" name="name" class="form_element input_element" id="name">
+
+
+                <label for="email" class="form_element label_element">Email*:</label>
+                <input type="email" name="email" class="form_element input_element" id="email">
+
+                <label for="phone_number" class="form_element label_element">Phone Number*:</label>
+                <input type="number" name="phone_number" class="form_element input_element" id="phone_number">
+                
+                <input type="button" value="Next" class="feedback_next_button" id="feedback_next_button1" onclick="personal_details()">
+            </section>
+
+            <section class="form_section temporaryly_disabled" id="select_section">
+
+                <label for="city" class="form_element label_element">City*:</label>
+                <select name="city" id="city" class="form_element" onchange="_selected_city()" required>
+                    <option value="Select_Your_City" selected disabled>Select Your City</option>
+                    <option value="ahmedabad">Ahmedabad</option>
+                    <option value="amreli">Amreli</option>
+                    <option value="anand">Anand</option>
+                    <option value="bharuch">Bharuch</option>
+                    <option value="bhavnagar">Bhavnagar</option>
+                    <option value="bhuj">Bhuj</option>
+                    <option value="botad">Botad</option>
+                    <option value="dahod">Dahod</option>
+                    <option value="deesa">Deesa</option>
+                    <option value="gandhidham">Gandhidham</option>
+                    <option value="gandhinagar">Gandhinagar</option>
+                    <option value="godhra">Godhra</option>
+                    <option value="gondal">Gondal</option>
+                    <option value="jamnagar">Jamnagar</option>
+                    <option value="jetpur">Jetpur</option>
+                    <option value="junagadh">Junagadh</option>
+                    <option value="kalol">Kalol</option>
+                    <option value="mehsana">Mehsana</option>
+                    <option value="morbi">Morbi</option>
+                    <option value="nadiad">Nadiad</option>
+                    <option value="navsari">Navsari</option>
+                    <option value="palanpur">Palanpur</option>
+                    <option value="patan">Patan</option>
+                    <option value="porbandar">Porbandar</option>
+                    <option value="rajkot">Rajkot</option>
+                    <option value="surat">Surat</option>
+                    <option value="surendranagar">Surendranagar</option>
+                    <option value="vadodara">Vadodara</option>
+                    <option value="valsad">Valsad</option>
+                    <option value="vapi">Vapi</option>
+                    <option value="veraval">Veraval</option>
+                </select>
+
+                <input type="text" class="temporaryly_disabled" name="selected_city" id="selected_city">
+
+                <input class="no_display" id="station" name="station">
+
+                <input type="text" class="no_display" name="option_station" id="option_station">
+
+                <label for="police_station" class="form_element label_element" id="police_station_label">Police Station*:</label>
+                <select name="police_station" id="police_station" onchange="_station()" class="form_element" required>
+                    <option value="Select_Your_Police_Station" selected disabled>Select Your Police Station</option>
+                    <!--To Be Continued-->
+                </select>
+
+                <input type="button" value="Next" class="feedback_next_button" id='feedback_next_button2' onclick="check_selection_section()">
+            </section>
+
+            <section class="form_section temporaryly_disabled" id="question1_section">
+
+                <div class="question form_element label_element" id="question1">1. Were you treated respectfully and professionally by the officer(s)?</div>
+                <section>
+                    <input type="radio" value="No" class="form_element option_element no_display" id="no1" name="answer_1">
+                    <label for="no1" class="form_element option_element" id="no1_label" onclick="no('no1_label', 'yes1_label')"> No </label>
+                </section>
+                <section>
+                    <input type="radio" value="Yes" class="form_element option_element no_display" id="yes1" name="answer_1">
+                    <label for="yes1" class="form_element option_element" id="yes1_label" onclick="yes('yes1_label', 'no1_label')"> Yes </label>
+                </section>
+                
+            </section>
+
+            <section class="form_section temporaryly_disabled" id="question2_section">
+
+                <div class="question form_element label_element" id="question2">2. Were you provided with clear and understandable information about the actions taken by the police?</div>
+                <section>
+                    <input type="radio" value="No" class="form_element option_element no_display" id="no2" name="answer_2">
+                    <label for="no2" class="form_element option_element" onclick="no('no2_label', 'yes2_label')" id="no2_label"> No </label>
+                </section>
+                <section>
+                    <input type="radio" value="Yes" class="form_element option_element no_display" id="yes2" name="answer_2">
+                    <label for="yes2" class="form_element option_element" onclick="yes('yes2_label', 'no2_label')" id="yes2_label"> Yes </label>
+                </section>
+            </section>
+
+            <section class="form_section temporaryly_disabled" id="question3_section">
+
+                <input type="text" class="temporaryly_disabled" id="answer3" name="answer3">
+
+                <label for="rating1" class="question form_element label_element" id="question3">3. How would you rate the response time to your calls or requests for assistance?</label>
+                <ul name="rating1" class="form_element answer" id="rating1_list" onclick="change('1star', 'answer3')">
+                    <li class="fa-star fa" onclick="star_rating1('1star')" value="1" id="1star"></li>
+                    <li class="fa-star fa" onclick="star_rating1('2star')" value="2" id="2star"></li>
+                    <li class="fa-star fa" onclick="star_rating1('3star')" value="3" id="3star"></li>
+                    <li class="fa-star fa" onclick="star_rating1('4star')" value="4" id="4star"></li>
+                    <li class="fa-star fa" onclick="star_rating1('5star')" value="5" id="5star"></li>
+                </ul>
+            </section>
+
+            <section class="form_section temporaryly_disabled" id="question4_section">
+
+                <div id="question4" class="question form_element label_element">4. Was your concers and issues addressed your satisfaction?</div>
+                <section>
+                    <input type="radio" value="No" class="form_element option_element no_display" id="no4" name="answer_4">
+                    <label for="no4" class="form_element option_element" id="no4_label" onclick="no('no4_label', 'yes4_label')"> No </label>
+                </section>
+                <section>
+                    <input type="radio" value="Yes" class="form_element option_element no_display" id="yes4" name="answer_4">
+                    <label for="yes4" class="form_element option_element" id="yes4_label" onclick="yes('yes4_label', 'no4_label')"> Yes </label>
+                </section>
+            </section>
+
+            <section class="form_section temporaryly_disabled" id="question5_section">
+
+                <div class="question form_element label_element" id="question5">5.	Do they have proper hygienic conditions in their department? </div>
+                <section>
+                    <input type="radio" name="answer_5" class="form_element option_element no_display" id="no5">
+                    <label for="no5" class="form_element option_element" id="no5_label" onclick="no('no5_label', 'yes5_label')"> No </label>
+                </section>
+                <section>
+                    <input type="radio" name="answer_5" id="yes5" class="form_element option_element no_display">
+                    <label for="yes5" class="form_element option_element" onclick="yes('yes5_label', 'no5_label')" id="yes5_label"> Yes </label>
+                </section>
+            </section>
+
+            <section class="form_section temporaryly_disabled" id="question6_section">
+
+                <input type="text" class="temporaryly_disabled" id="answer6" name="answer6">
+
+                <div class="question form_element label_element" id="question6">6. Do you think the police department is doing enough to address the root causes of crime in your community?</div>
+                <ul name="rating2" class="form_element answer" id="rating2_list" onclick="change('2_1star', 'answer6')">
+                    <li class="fa-star fa" value=0 id="2_1star" onclick="star_rating2('2_1star')"></li>
+                    <li class="fa-star fa" value=2 id="2_2star" onclick="star_rating2('2_2star')"></li>
+                    <li class="fa-star fa" value=3 id="2_3star" onclick="star_rating2('2_3star')"></li>
+                    <li class="fa-star fa" value=4 id="2_4star" onclick="star_rating2('2_4star')"></li>
+                    <li class="fa-star fa" value=5 id="2_5star" onclick="star_rating2('2_5star')"></li>
+                </ul>
+            </section>
+
+            <section class="form_section temporaryly_disabled" id="question7_section">
+                <input type="text" class="temporaryly_disabled" name="answer7" id="answer7">
+
+                <div class="question form_element label_element" id="question7">7.	How well does the department handle public complaints and concerns?</div>
+                <ul class="form_element answer" id="rating3_list" onclick="change('3_1star', 'answer7')">
+                    <li class="fa-star fa" id="3_1star" value=0 onclick="star_rating3('3_1star')"></li>
+                    <li class="fa-star fa" id="3_2star" value=2 onclick="star_rating3('3_2star')"></li>
+                    <li class="fa-star fa" id="3_3star" value=3 onclick="star_rating3('3_3star')"></li>
+                    <li class="fa-star fa" id="3_4star" value=4 onclick="star_rating3('3_4star')"></li>
+                    <li class="fa-star fa" id="3_5star" value=5 onclick="star_rating3('3_5star')"></li>
+                </ul>
+            </section>
+
+            <section class="form_section temporaryly_disabled" id="question8_section">
+                <input type="text" name="answer8" id="answer8" class="no_display">
+
+                <div class="question form_element label_element" id="question8">8.	In your opinion, how responsive are police officers towards community concerns?</div>
+                <ul class="form_element answer" id="rating4_list" onclick="change('4_1star', 'answer8')">
+                    <li class="fa-star fa" id="4_1star" value=0 onclick="star_rating4('4_1star')"></li>
+                    <li class="fa-star fa" id="4_2star" value=2 onclick="star_rating4('4_2star')"></li>
+                    <li class="fa-star fa" id="4_3star" value=3 onclick="star_rating4('4_3star')"></li>
+                    <li class="fa-star fa" id="4_4star" value=4 onclick="star_rating4('4_4star')"></li>
+                    <li class="fa-star fa" id="4_5star" value=5 onclick="star_rating4('4_5star')"></li>
+                </ul>
+            </section>
+
+            <section class="form_section temporaryly_disabled" id="question9_section">
+                <input type="text" name="answer9" id="answer9" class="no_display">
+
+                <div class="question form_element label_element" id="question9">9. How would you rate the police department’s efforts to engage with the community?</div>
+                <ul class="form_element answer" id="rating5_list" onclick="change('5_1star', 'answer9')">
+                    <li class="fa-star fa" id="5_1star" value=0 onclick="star_rating5('5_1star')"></li>
+                    <li class="fa-star fa" id="5_2star" value=2 onclick="star_rating5('5_2star')"></li>
+                    <li class="fa-star fa" id="5_3star" value=3 onclick="star_rating5('5_3star')"></li>
+                    <li class="fa-star fa" id="5_4star" value=4 onclick="star_rating5('5_4star')"></li>
+                    <li class="fa-star fa" id="5_5star" value=5 onclick="star_rating5('5_5star')"></li>
+                </ul>
+            </section>
+
+            <section class="form_section temporaryly_disabled" id="question10_section">
+                <input type="text" name="answer10" id="answer10" class="no_display">
+
+                <div class="question form_element label_element" id="question10">10. How would you rate the police department’s efforts to prevent crime in your neighbourhood?</div>
+                <ul class="form_element answer" id="rating6_list" onclick="change('6_1star', 'answer10')">
+                    <li class="fa-star fa" id="6_1star" value=0 onclick="star_rating6('6_1star')"></li>
+                    <li class="fa-star fa" id="6_2star" value=2 onclick="star_rating6('6_2star')"></li>
+                    <li class="fa-star fa" id="6_3star" value=3 onclick="star_rating6('6_3star')"></li>
+                    <li class="fa-star fa" id="6_4star" value=4 onclick="star_rating6('6_4star')"></li>
+                    <li class="fa-star fa" id="6_5star" value=5 onclick="star_rating6('6_5star')"></li>
+                </ul>
+            </section>
+
+            <section class="form_section temporaryly_disabled" id="rating_section">
+                <input type="text" name="rating" id="rating" class="temporaryly_disabled">
+
+                <label for="rating_list" class="form_element label_element" id="rating_label">Overall Rating*: </label>
+                <ul name="rating_list" class="form_element" id="rating_list" onclick="change('star-1', 'rating')">
+                    <li class="rating_element fa-star fa" onclick="star_rating('star-1')" value=0 id="star-1"></li>
+                    <li class="rating_element fa-star fa" onclick="star_rating('star-2')" value=2 id="star-2"></li>
+                    <li class="rating_element fa-star fa" onclick="star_rating('star-3')" value=3 id="star-3"></li>
+                    <li class="rating_element fa-star fa" onclick="star_rating('star-4')" value=4 id="star-4"></li>
+                    <li class="rating_element fa-star fa" onclick="star_rating('star-5')" value=5 id="star-5"></li>
+                </ul>
+            </section>
+
+            <section class="form_section temporaryly_disabled" id="written_feedback_section">
+
+                <label for="written_feedback" class="form_element label_element question" id="written_feedback_label">What, if anything, could the police department do better in the future? (Optional)</label>
+                <textarea name="written_feedback" id="written_feedback" class="form_element" cols="30" rows="10"></textarea>
+            
+            </section>
+
+            <button type="button" id="submit_button" class="temporaryly_disabled" onclick="required_check()">Submit</button>
+
+        </form>
+
+    </section>
+
+</body>
+
+<script src="../static/js/feedback_form.js"></script>
+
+</html>

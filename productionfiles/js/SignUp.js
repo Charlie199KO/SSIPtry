@@ -55,7 +55,7 @@ function sub() {
     document.getElementById('signup_form').submit()
 }
 
-function selected_city(){
+function _selected_c(){
     x = document.getElementById('district').value
     document.getElementById('selected_city').value = x
     console.log(document.getElementById('selected_city').value)

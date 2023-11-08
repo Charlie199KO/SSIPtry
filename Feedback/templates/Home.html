@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | .com</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Oswald&family=Playfair+Display&family=Teko&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/Home.css">
+</head>
+
+<body>
+    <nav id="navigation_bar">
+        <ul id="navigation_list">
+            <li class="navigation_list_item"><a class="navigation_element" href="{% url 'home' %}" id="Home">Home</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="About Us">About Us</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="{% url 'portal' %}" id="Portal">Portal</a>
+            </li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="Contact Us">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <a href="{% url 'login' %}" id="Login_title">Login</a>
+
+    <section id="social_awareness" class="social_awareness">
+
+        <div class="image_slider_element fade">
+            <div class="number_text">1 / 4</div>
+            <img src="../static/images/feedback_form.png" style="width: 100%;" alt="">
+        </div>
+
+        <div class="image_slider_element fade">
+            <div class="number_text">2 / 4</div>
+            <img src="../static/images/Compliment.png" style="width: 100%;" alt="">
+        </div>
+
+        <div class="image_slider_element fade">
+            <div class="number_text">3 / 4</div>
+            <img src="../static/images/incident.png" style="width: 100%;" alt="">
+        </div>
+
+        <div class="image_slider_element fade">
+            <div class="number_text">4 / 4</div>
+            <img src="../static/images/Suggestion.png" style="width: 100%;" alt="">
+        </div>
+    </section>
+
+    <br>
+
+    <div style="text-align: center;" class="pos">
+        <span class="dot" onclick="current_slide(1)"></span>
+        <span class="dot" onclick="current_slide(2)"></span>
+        <span class="dot" onclick="current_slide(3)"></span>
+        <span class="dot" onclick="current_slide(4)"></span>
+    </div>
+
+    <section class="section">
+
+        <section class="home_section" id="About_Us_section">
+            <div id="About Us" class="title">About Us</div>
+            <hr>
+            <div class="content">Welcome to [Your Company Name], a platform dedicated to fostering positive change and
+                strengthening the bond between the community and law enforcement. Our journey began with a shared vision: to
+                bridge the gap between citizens and the Gujarat Police, promoting transparency, accountability, and mutual
+                trust. In pursuit of this goal, we embarked on a mission to empower both the public and law enforcement
+                agencies through innovative solutions.</div>
+        </section>
+
+        <section class="home_section">
+
+            <div class="title">Our Goal</div>
+            <hr>
+            <div class="content">At [Your Company Name], our primary goal is to create a safer and more secure environment
+                for everyone in Gujarat. We believe that open communication and active collaboration between citizens and
+                the police are vital to achieving this objective. By providing a user-friendly feedback form, we encourage
+                individuals to share their experiences, concerns, and suggestions directly with the Gujarat Police. Through
+                this process, we aim to facilitate meaningful conversations, enhance community policing efforts, and drive
+                positive changes in law enforcement practices.</div>
+        </section>
+
+        <section class="home_section">
+
+            <div class="title">Our Team</div>
+            <hr>
+            <div class="content"></div>
+        </section>
+
+        <section class="home_section">
+
+            <div class="title">Join Us in Shaping a Safer Tomorrow</div>
+            <hr>
+            <div class="content">We invite you to join us on this empowering journey. Together, we can build stronger connections between the community and the Gujarat Police, fostering trust, understanding, and collaboration. Your feedback and active participation are invaluable in shaping a safer tomorrow for all. Let's work hand in hand to create a harmonious society where everyone feels heard, respected, and protected.
+                
+                Thank you for being a part of [Your Company Name]. Together, we can make a difference.
+            </div>
+        </section>
+    </section>
+
+</body>
+<script src="../static/js/Home.js"></script>
+
+</html>

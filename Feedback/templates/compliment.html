@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Playfair+Display&family=Oswald&family=Teko&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/compliment.css">
+    <title>Compliments | .com</title>
+</head>
+<body>
+    <nav id="navigation_bar">
+        <ul id="navigation_list">
+            <li class="navigation_list_item"><a class="navigation_element" href="{% url 'home' %}" id="Home">Home</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="About Us">About Us</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="{% url 'portal' %}" id="Portal">Portal</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="Contact Us">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div id="compliments_title">Compliments</div>
+
+    <form action="{% url 'compliment' %}" method="post" id="compliment_form">
+        {% csrf_token %}
+
+        <section class="form_section">
+            <label for="name" class="form_element label_element">Name:</label>
+            <input type="text" class="form_element input_element" id="name" name="name">
+
+            <label for="email" class="form_element label_element">Email:</label>
+            <input type="email" class="form_element input_element" id="email" name="email">
+
+            <label for="phone_number" class="form_element label_element">Phone Number:</label>
+            <input type="numebr" class="form_element input_element" id="phone_number" name="phone_number">
+
+            <input type="button" value="Next" id="next_button" onclick="next()" class="next_button">
+        </section>
+
+        <section class="form_section temporaryly_disabled" id="compliment_section">
+
+            <label for="compliment" class="form_element label_element full_label">Compliment:</label>
+            <textarea name="compliment" id="compliment" class="full_label form_element full" cols="30" rows="10"></textarea>
+
+            <input type="button" value="Submit" class="next_button" onclick="proceed()">
+
+        </section>
+
+    </form>
+
+</body>
+
+    <script src="../static/js/compliment.js"></script>
+
+</html>

@@ -1,0 +1,36 @@
+body{
+    background-color:#CCFFFF;
+    color: black;
+}
+
+/*Navigation Bar*/
+
+#navigation_bar{
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 36px;
+    position: sticky;
+    top: 10px;
+}
+
+#navigation_list{
+    display: flex;
+    justify-items: auto auto;
+}
+
+.navigation_list_item{
+    list-style: none;
+}
+
+.navigation_element{
+    text-decoration: none;
+    color: white;
+    padding: 18px;
+    font-size: 22px;
+    font-family: 'Bree Serif', serif;
+}
+
+.navigation_element:hover{
+    color: yellow;
+    text-decoration: underline;
+}

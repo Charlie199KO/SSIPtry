@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Playfair+Display&family=Oswald&family=Teko&display=swap"
+        rel="stylesheet">
+    <title>Report An Incident | .com</title>
+    <link rel="stylesheet" href="../static/css/incident.css">
+</head>
+
+<body>
+    <nav id="navigation_bar">
+        <ul id="navigation_list">
+            <li class="navigation_list_item"><a class="navigation_element" href="{% url 'home' %}" id="Home">Home</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="About Us">About Us</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="{% url 'portal' %}" id="Portal">Portal</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="Contact Us">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div id="incident_title">Report An Incident</div>
+
+    <form action="{% url 'incident' %}" method="post" id="incident_form">
+        {% csrf_token %}
+        <section class="form_section " id="base_section">
+            <label for="name" class="form_element label_element">Name:</label>
+            <input type="text" id="name" class="form_element input_element" name="name">
+
+            <label for="phone_number" class="form_element label_element">Phone Number:</label>
+            <input type="number" id="phone_number" class="form_element" name="phone_number">
+
+            <input type="button" value="Next" id="next_button" onclick="next()" class="next_button">
+        </section>
+
+        <section class="form_section temporaryly_disabled" id="incident_section">
+            <label for="location" class="form_element label_element">Location (Area):</label>
+            <input type="text" class="form_element input_element" id="location" placeholder="Please Type Incident Location" name="location">
+
+            <label for="incident_with" class="form_element label_element">Incident With:</label>
+            <select name="incident_with" class="form_element select_element" onchange="select_incident_with()" required id="incident_with">
+                <option value="Select_Your_Incident_With" selected disabled>Select Your Incident With</option>
+                <option value="Police Officer">Police Officer</option>
+                <option value="Local People">Local People</option>
+            </select>
+
+            <input type="text" class="temporaryly_disabled" id="incident_selected" name="incident_selected">
+
+            <input type="button" value="Proceed" id="proceed_button" onclick="proceed()" class="next_button">
+        </section>
+
+        <section class="form_section temporaryly_disabled" id="written_section">
+            <label for="incident" class="form_element label_element full_label">Describe Your Incident:</label>
+            <textarea name="incident" id="incident" cols="30" rows="10" class="select_element full_label form_element full"></textarea>
+
+            <input type="button" value="Submit" id="submit_button" onclick="check()" class="next_button">
+        </section>
+
+    </form>
+
+</body>
+
+<script src="../static/js/incident.js"></script>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort | .com</title>
+    <link rel="stylesheet" href="../static/css/try2.css">
+</head>
+
+<style>
+    .no_display{
+        display: none;
+    }
+</style>
+
+<body>
+    <nav id="navigation_bar">
+        <ul id="navigation_list">
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="Home">Home</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="About Us">About Us</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="portal.html" id="Portal">Portal</a></li>
+            <li class="navigation_list_item"><a class="navigation_element" href="" id="Contact Us">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <form action="{% url 'sort' %}" method="post" name="sort" id="sort">
+        {% csrf_token %}
+
+        <select name="sorted" id="sorted" onchange="select()">
+            <option value="Positive">Positive</option>
+            <option value="Negative">Negative</option>
+        </select>
+
+        <input type="text" class="no_display" name="sort_selected" id="sort_selected">
+
+        <button type="submit">Sort</button>
+        
+    </form>
+    {% for x in mydata %}
+        <h1> {{ x }} </h1>
+    {% endfor %}
+
+</body>
+
+<script src="../static/js/try2.js"></script>
+
+</html>
